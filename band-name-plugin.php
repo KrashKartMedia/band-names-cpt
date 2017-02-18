@@ -3,7 +3,7 @@
  * Plugin Name: Band Names
  * Plugin URI: http://russellenvy.com
  * Description: Simply create a post type called band names and display band names with a shortcode.
- * Version: 1.0
+ * Version: 1.0.0
  * Author: Russell Aaron
  * Author URI: http://russellenvy.com
  * Text Domain: band_names
@@ -53,7 +53,9 @@ add_action( 'init', 'band_names_post_type' );
     while ( $band_names->have_posts() ) : $band_names->the_post();  
     //get post meta info
     //echo some stuff out
-    echo '<div class="band-name"><h3>'. esc_html( the_title() ) . '</h3></div>';
+    echo '<div class="band-name"><h3>';
+    echo esc_html( the_title() );
+    echo '</h3></div>';
     endwhile;
     wp_reset_query();
     return ob_get_clean(); 
@@ -73,7 +75,9 @@ add_action( 'init', 'band_names_post_type' );
     while ( $single_band_names->have_posts() ) : $single_band_names->the_post();  
     //get post meta info
     //echo some stuff out
-    echo '<div class="single-band-name"><h3>'. esc_html( the_title() ) . '</h3></div>';
+    echo '<div class="single-band-name"><h3>';
+    echo esc_html( the_title() );
+    echo '</h3></div>';
     endwhile;
     wp_reset_query();
     return ob_get_clean(); 
